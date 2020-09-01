@@ -28,7 +28,8 @@ Decentralized app for course https://www.udemy.com/course/getting-started-with-e
     ```javascript
     app.sellArticle("test name", "test description", web3.toWei(3, "ether"), {from: web3.eth.accounts[1]})
     ```
-## Truffle and Solidity versions
+## Truffle, metamask and Solidity versions
 
     Truffle v4.0.7 (core: 4.0.7)
+    Metamask 7.0.0
     Solidity v0.4.19 (solc-js)
