@@ -1,34 +1,34 @@
-# ChainSkills Truffle Box
+# ChainList DAPP
 
-This Truffle Box has all you need to create a DApp by following the course delivered by [ChainSkills](https://www.udemy.com/getting-started-with-ethereum-solidity-development/).
+Decentralized app for course https://www.udemy.com/course/getting-started-with-ethereum-solidity-development/
 
-This box has been based from [pet-shop-box](https://github.com/truffle-box/pet-shop-box).
+## truffle Commands
 
-## Installation
-
-1. Install Truffle globally.
-    ```javascript
-    npm install -g truffle
+1. Contracts deployment
+    ```
+    truffle migrate --network ganache
     ```
 
-2. Download the box. This also takes care of installing the necessary dependencies.
+2. Enter truffle console
     ```javascript
-    truffle unbox chainskills/chainskills-box
+    truffle console --network ganache
     ```
 
-3. Run the development console.
+3. Obtain ChainList contract instance
     ```javascript
-    truffle develop
+    ChainList.deployed().then(function(instance) {app = instance})
     ```
 
-4. Compile and migrate the smart contracts. Note inside the development console we don't preface commands with `truffle`.
+4. Get Article (state variables)
     ```javascript
-    compile
-    migrate
+    app.getArticle()
     ```
 
-5. Run the `liteserver` development server (outside the development console) for front-end hot reloading. Smart contract changes must be manually recompiled and migrated.
+5. Sell article
     ```javascript
-    // Serves the front-end on http://localhost:3000
-    npm run dev
+    app.sellArticle("test name", "test description", web3.toWei(3, "ether"), {from: web3.eth.accounts[1]})
     ```
+## Truffle and Solidity versions
+
+    Truffle v4.0.7 (core: 4.0.7)
+    Solidity v0.4.19 (solc-js)
